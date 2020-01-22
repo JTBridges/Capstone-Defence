@@ -1,0 +1,31 @@
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <link href="main.css" rel="stylesheet" type="text/css">
+      <title>Capstone Defense</title>
+   </head>
+   <body>
+      <nav class="navbar navbar-light bg-light fixed-top navbar-expand-sm">
+         <a class="navbar-brand" href="#">Capstone Defense</a>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/index.php">Home</a></li>
+               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/about.html">About</a></li>
+               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/download.html">Download</a></li>
+               <li class="nav-item"><a class="nav-link" href="https://github.com/JTBridges/Capstone-Defence.git">GitHub</a></li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container">
+         <div class="row text-center justify-content-center">
+            <div class="col">
+               <h3 class="text-center">Capstone Defense</h3>
+               <h4>Welcome, [USER]</h4>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
