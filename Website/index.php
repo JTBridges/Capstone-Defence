@@ -40,14 +40,28 @@
                         <div style="color:#FFFFFF">
                            <?php
                               if (isset($_POST['submitlog'])) {
+                                require 'connection.php';
+
                                 $username = $_POST['loguser'];
                                 $pass = $_POST['logpass'];
+                                $query = "select username,password from users where username = '$username' and password = '$pass';";
+                                $result = mysqli_query($connect, $query);
+                                $numrows = mysqli_num_rows($result);
 
-                                echo $username;
-                                echo "<br>";
-                                echo $pass;
+                                if($numrows != 0) {
+                                  while($row = mysqli_fetch_array($result)) {
+
+                                    header("Location: http://34.66.171.142/login.php");
+                                    exit();
+                                  }
+                                }
+
+                                else{
+                                  echo "Incorrect Username/Password.";
+                                }
+                                mysqli_close($connect);
                               }
-                              ?>
+                            ?>
                         </div>
                      </div>
                   </div>
@@ -65,23 +79,18 @@
                         <div style="color:#FFFFFF">
                            <?php
                               if (isset($_POST['submitreg'])) {
+                              require 'connection.php';
+
                                 $username = $_POST['reguser'];
                                 $pass = $_POST['regpass'];
                                 $fname = $_POST['regf'];
                                 $lname = $_POST['regl'];
                                 $email = $_POST['regemail'];
 
-                                echo "Thank you  for registering, ", $username, ". Check your email for more information."
-                                echo "<br>";
-                                echo $username;
-                                echo "<br>";
-                                echo $pass;
-                                echo "<br>";
-                                echo $fname;
-                                echo "<br>";
-                                echo $lname;
-                                echo "<br>";
-                                echo $email;
+                              $query = " Insert into users(username, password, fName, lName, email) values ('$username','$pass','$fname','$lname','$email');";
+                              mysqli_query($connect, $query) or die (mysqli_error($connect));
+                              mysqli_close($connect);
+                                echo "Thank you  for registering, ", $username, ". Check your email for more information.";
                               }
                               ?>
                         </div>
@@ -90,7 +99,6 @@
                </div>
             </div>
          </div>
-      </div>
       </div>
    </body>
 </html>
