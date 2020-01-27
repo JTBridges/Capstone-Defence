@@ -22,8 +22,8 @@
       <div class="container">
          <div class="row text-center justify-content-center">
             <div class="col">
-               <h3 style="color:#FFFFFF"  class="text-center">Capstone Defense</h3>
-		<h4>Welcome! Game coming soon!</h4>
+               <h3 class="text-center">Capstone Defense</h3>
+               <h4>Welcome, [USER]</h4>
             </div>
          </div>
       </div>
