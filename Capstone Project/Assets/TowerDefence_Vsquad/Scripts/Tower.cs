@@ -45,7 +45,6 @@ public class Tower : MonoBehaviour {
 
 
     void Update () {
-
         
         // Tower`s rotate
 
