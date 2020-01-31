@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
+    private Color c1;//for the circle of the joystick
+    private Color c2;//for the middle part of the joystick, we can't assume they will always be the same color.
 
     public float HandleRange
     {
@@ -55,11 +58,18 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
+
+        c1 = GetComponent<Image>().color;
+        c2 = GetComponent<Image>().color;
+        GetComponent<Image>().color = new Color(c1.r, c1.g, c1.b, 0.35f);
+        transform.GetChild(0).GetComponent<Image>().color = new Color(c2.r, c2.g, c2.b, 0.35f);
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
+        GetComponent<Image>().color = new Color(c1.r, c1.g, c1.b, 1);
+        transform.GetChild(0).GetComponent<Image>().color = new Color(c2.r, c2.g, c2.b, 1);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -133,6 +143,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     {
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;
+        GetComponent<Image>().color = new Color(c1.r, c1.g, c1.b, 0.35f);
+        transform.GetChild(0).GetComponent<Image>().color = new Color(c2.r, c2.g, c2.b, 0.35f);
     }
 
     protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
