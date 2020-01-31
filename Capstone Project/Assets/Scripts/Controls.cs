@@ -31,9 +31,11 @@ public class Controls : MonoBehaviour
     #if UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
         Vector3 vec = new Vector3(sticks[1].Horizontal, 0, sticks[1].Vertical);
         if (vec != Vector3.zero)
+        {
             anim.SetBool("isMoving", true);
+            lichTrans.forward = vec;
+        }
         Vector3.Normalize(vec);//otherwise diagnol movement would be faster
-        lichTrans.forward = vec;
         transform.Translate(vec * speed * Time.deltaTime);//don't change transform.position directly
         camTrans.RotateAround(lichTrans.position, Vector3.up, sticks[0].Horizontal * lookSensitivity);
    #endif
@@ -73,12 +75,13 @@ public class Controls : MonoBehaviour
         }
 
         displacement = Vector3.ProjectOnPlane(displacement, Vector3.up);//camera forward is actually slanted downwards
-        Vector3.Normalize(displacement);//without this diagnol movement would be faster
         if (displacement != Vector3.zero)
         {
             anim.SetBool("isMoving", true);
-            lichTrans.forward = displacement;
+            //to make the avatar turning smoother. Read elsewhere about Quaternions because they are not intuitive.
+            lichTrans.rotation = Quaternion.RotateTowards(lichTrans.rotation, Quaternion.LookRotation(displacement, Vector3.up), 200f * Time.deltaTime);
         }
+        Vector3.Normalize(displacement);//without this diagnol movement would be faster
         transform.Translate(displacement * Time.deltaTime * speed);//don't change transform.position directly, it would enable walking through walls.
   #endif
     }

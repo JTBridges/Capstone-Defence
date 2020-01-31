@@ -15,7 +15,7 @@ public class TakeABreakTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         if (Time.time >= 15)
             this.GetComponent<Text>().color = new Color(c.r, c.g, c.b, 1);
     }
