@@ -22,7 +22,6 @@ public class Controls : MonoBehaviour
         anim = transform.GetChild(0).GetComponent<Animator>();
         sticks = FindObjectsOfType<Joystick>();
     }
-
     // Update is called once per frame
     //lines starting with # are for platform dependent compilation.
     void Update()
@@ -39,7 +38,7 @@ public class Controls : MonoBehaviour
         transform.Translate(vec * speed * Time.deltaTime);//don't change transform.position directly
         camTrans.RotateAround(lichTrans.position, Vector3.up, sticks[0].Horizontal * lookSensitivity);
    #endif
-   #if UNITY_STANDALONE || UNITY_EDITOR
+   #if UNITY_STANDALONE || UNITY_EDITOR || UNITY_WEBGL
 
         camTrans.RotateAround(lichTrans.position, Vector3.up, Input.GetAxis("Mouse X") * lookSensitivity);
 
