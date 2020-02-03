@@ -4,61 +4,77 @@
 <title>Leaderboard</title>
 <style>
 
-#container {
-	width: 600px;
-	height: auto;
+h1 {
+  color: Blue;
+  text-align: center;
 }
 
-.row {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 40px;
-	border-bottom: 1px solid #AFAFAF;
+#Leaderboard {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.name {
-	position: relative;
-	display: inline-block;
-	width: 75%;
-	line-height: 45px;
+#Leaderboard td, #Leaderboard th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  Text-align: center;
 }
 
-.score {
-	position: relative;
-	display: inline-block;
-	width: 25%;
+#Leaderboard tr:nth-child(even){background-color: #f2f2f2;}
+
+#Leaderboard tr:hover {background-color: #ddd;}
+
+#Leaderboard th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
 }
 
 </style>
+<h1>Leaderboard</h1>
+</head>
+<body>
 
-
-
-<div id="container">
-    <div class="row">
-        <div class="name">Jenna</div><div class="score">1,345</div>
-    </div>
-    
-    <div class="row">
-        <div class="name">Stevan</div><div class="score">1,284</div>
-    </div>
-    
-    <div class="row">
-        <div class="name">Jag</div><div class="score">936</div>
-    </div>
-    
-    <div class="row">
-        <div class="name">Mitchell</div><div class="score">910</div>
-    </div>
-    
-    <div class="row">
-        <div class="name">James</div><div class="score">883</div>
-    </div>
-
-    <div class="row">
-        <div class="name">Doug</div><div class="score">846</div>
-    </div>
-</div>
+<table id="Leaderboard">
+  <tr>
+    <th>Ranking</th>
+    <th>First Name</th>
+    <th>Score</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>James</td>
+    <td>1,826</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Stevan</td>
+    <td>1,572</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Jenna</td>
+    <td>1,004</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Doug</td>
+    <td>987</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Mitchell</td>
+    <td>937</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Jag</td>
+    <td>918</td>
+  </tr>
+</table>
 
 
 
