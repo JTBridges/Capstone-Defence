@@ -20,8 +20,8 @@ public class CanvasMode : MonoBehaviour
     private void Awake()
     {
 #if UNITY_STANDALONE || UNITY_WEBGL//we don't want joysticks on non-mobile platforms
-        Destroy(transform.GetChild(0));
-        Destroy(transform.GetChild(1));
+        Destroy(transform.GetChild(0).gameObject);
+        Destroy(transform.GetChild(1).gameObject);
 #endif
     }
 }
