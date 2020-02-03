@@ -37,9 +37,13 @@ public class worldSpawning : MonoBehaviour
                             if (valueGround >= .97 && decider >= .97)
                             {
                                 Instantiate(castle, new Vector3(i, 2, j), Quaternion.identity, this.transform);
-                                continue;
+                                
                             }
-                            Instantiate(bush, new Vector3(i, 3, j), Quaternion.identity, this.transform);
+                            else
+                            {
+                                Instantiate(bush, new Vector3(i, 3, j), Quaternion.identity, this.transform);
+                            }
+                            
                         }
                         Instantiate(ground, new Vector3(i, 1, j), Quaternion.identity, this.transform);
                     }

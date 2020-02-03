@@ -39,7 +39,6 @@ public class Controls : MonoBehaviour
     void Update()
     {
         anim.SetBool("isMoving", false);
-    #if UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
     #if UNITY_IPHONE || UNITY_ANDROID
         Vector3 vec = new Vector3(sticks[1].Horizontal, 0, sticks[1].Vertical);
         if (vec != Vector3.zero)
