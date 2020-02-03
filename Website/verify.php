@@ -62,7 +62,7 @@
                             	}
                             }
                             else{
-                            echo "$email and $verify";
+                            echo "Could not verify account.";
                             }
                             mysqli_close($connect);
                             }

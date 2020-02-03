@@ -51,7 +51,7 @@
                              $lname = $_POST['regl'];
                              $email = $_POST['regemail'];
                              $random_string = chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)) . chr(rand(65,90)); // random(ish) 6 character string
-                             $query = " Insert into users(username, password, fName, lName, email, verification) values ('$username','$pass','$fname','$lname','$email','$random_string');";
+                             $query = " Insert into users(username, password, email, fName, lName, verification) values ('$username','$pass','$email','$fname','$lname','$random_string');";
                              mysqli_query($connect, $query);
 
                              mysqli_close($connect);
@@ -63,7 +63,7 @@
                             $mail->setFrom('capstonedef@gmail.com');
                             $mail->addAddress($email);
                             $mail->Subject = 'Account Verification For Capstone Defense';
-                            $mail->Body = "Your code: '$random_string'. <br>Visit the following link to activate your account: http://capstonedefense.org/verify.php.";
+                            $mail->Body = "Your code: '$random_string'. \nVisit the following link to activate your account: http://capstonedefense.org/verify.php.";
                             $mail->IsSMTP();
                             $mail->SMTPSecure = 'ssl';
                             $mail->Host = 'ssl://smtp.gmail.com';
@@ -76,6 +76,12 @@
                             //Set the password of your gmail address here
                             $mail->Password = '$password1';
                             header("Location: http://34.66.171.142/landing.php");
+                            //if(!$mail->send()) {
+                            //  echo 'Email is not sent.';
+                            //  echo 'Email error: ' . $mail->ErrorInfo;
+                            //} else {
+                            //  echo 'Email has been sent.';
+                            //}
                            }
                            ?>
                      </div>
