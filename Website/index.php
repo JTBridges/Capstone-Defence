@@ -22,8 +22,10 @@
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/about.html">About</a></li>
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/download.html">Download</a></li>
                <li class="nav-item"><a class="nav-link" href="https://github.com/JTBridges/Capstone-Defence.git">GitHub</a></li>
+
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/login.php">Login</a></li>
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/register.php">Register</a></li>
+
             </ul>
          </div>
       </nav>
