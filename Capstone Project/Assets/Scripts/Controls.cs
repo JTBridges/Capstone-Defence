@@ -27,18 +27,21 @@ public class Controls : MonoBehaviour
     void Update()
     {
         anim.SetBool("isMoving", false);
-    #if UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
+    #if UNITY_IPHONE || UNITY_ANDROID
         Vector3 vec = new Vector3(sticks[1].Horizontal, 0, sticks[1].Vertical);
         if (vec != Vector3.zero)
         {
             anim.SetBool("isMoving", true);
-            lichTrans.forward = vec;
         }
+        float angle = Vector3.Angle(Vector3.forward, Vector3.ProjectOnPlane(camTrans.forward, Vector3.up));
+        vec = Quaternion.AngleAxis(-angle, Vector3.up) * vec;//rotate it
+        lichTrans.forward = vec;
         Vector3.Normalize(vec);//otherwise diagnol movement would be faster
         transform.Translate(vec * speed * Time.deltaTime);//don't change transform.position directly
         camTrans.RotateAround(lichTrans.position, Vector3.up, sticks[0].Horizontal * lookSensitivity);
    #endif
-   #if UNITY_STANDALONE || UNITY_EDITOR || UNITY_WEBGL
+        
+   #if UNITY_STANDALONE || UNITY_WEBGL
 
         camTrans.RotateAround(lichTrans.position, Vector3.up, Input.GetAxis("Mouse X") * lookSensitivity);
 
