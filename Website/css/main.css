@@ -4,9 +4,12 @@
   font-weight:normal;
   font-style:normal;
 }
-body {
- background-color: #64ccd6 !important;
+input{
+  margin-top:10px;
 }
+body {
+ background-color: #207179 !important;
+ }
 h2{
   color:#FFFFFF;
   padding:10px;
@@ -36,4 +39,8 @@ font-family:'bigSpace';
 
 .container {
   margin-top:60;
+}
+
+.carobg {
+  background-color: #121212;
 }

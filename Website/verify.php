@@ -30,52 +30,51 @@
          <div class="cont1">
             <div class="row text-center">
                <div class="col">
-                  <h4>Login</h4>
-                  <div style="color:#FFFFFF">
-                     <form method="post" action="">
-                        <input class="form-control white-border" type="text" placeholder="Username" aria-label="Username" name="loguser" required/>
-                        <input class="form-control white-border" type="password" placeholder="Password" aria-label="Password" name="logpass" required/>
-                        <input type="submit" name="submitlog" value="Submit" />
-                     </form>
-                     <div style="color:#FFFFFF">
-                        <?php
-                           session_start();
 
-                           if (isset($_POST['submitlog']) ) {
-                           require 'connection.php';
+                 <!-- Put shit here -->
+                 <h4>Verify your account</h4>
+                 <div style="color:#FFFFFF">
+                    <form method="post" action="">
+                       <input class="form-control white-border" type="email" placeholder="Email" aria-label="Email" name="veremail"required/>
+                       <input class="form-control white-border" type="text" placeholder="6-character code" aria-label="6-character code" name="veruser" required/>
+                       <input type="submit" name="submitver" value="Submit" />
+                    </form>
+                    <div style="color:#FFFFFF">
 
+                       <?php
 
-                           $username = $_POST['loguser'];
-                           $pass = $_POST['logpass'];
+                          if (isset($_POST['submitver'])) {
+                          require 'connection.php';
 
-                           $query = "select username,password from users where username = '$username' and password = '$pass';";
+                            $email = $_POST['veremail'];
+                            $verify = $_POST['veruser'];
 
-                           $result = mysqli_query($connect, $query);
-                           $numrows = mysqli_num_rows($result);
-                           if($numrows > 0){
+                            $query = "select email,verification from users where email = '$email' and verification = '$verify';";
 
-                           	while($row = mysqli_fetch_array($result)) {
+                            $result=mysqli_query($connect, $query);
 
-                           		$_SESSION['username'] = $username;
-                           		header("Location: http://34.66.171.142/myaccount.php");
+                            $numrows = mysqli_num_rows($result);
+                            if($numrows > 0){
+                            	while($row = mysqli_fetch_array($result)) {
+                                $query="UPDATE users SET status='unlocked' WHERE email='$email' and verification='$verify';";
+                                mysqli_query($connect,$query);
+                            		header("Location: http://34.66.171.142/login.php");
+                            	}
+                            }
+                            else{
+                            echo "$email and $verify";
+                            }
+                            mysqli_close($connect);
+                            }
 
-                           	}
-                           }
-                           else{
-                           echo "Incorrect Username/Password.";
-                           }
-                           mysqli_close($connect);
-                           }
-                           ?>
-                     </div>
-                  </div>
+                          ?>
+                    </div>
+                 </div>
+
                </div>
-
             </div>
          </div>
       </div>
-
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 
    </body>
 </html>

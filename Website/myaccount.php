@@ -25,13 +25,34 @@
             </ul>
          </div>
       </nav>
+      <div class="container">
+         <div class="row text-center justify-content-center">
+            <div class="col">
+               <h3 class="text-center">
+                 <?php
 
-         <div class="container">
-            <div class="row text-center justify-content-center">
-               <div class="col">
-                  <h3 class="text-center">Download Coming Soon</h3>
-               </div>
+                 session_start();
+                 $username = $_SESSION['username'];
+                 echo $username;
+
+
+                  ?>
+               </h3>
+
+               <form method="post" action="">
+                  <input type="submit" name="logout" value="Log Out" />
+               </form>
+               <?php
+                if (isset($_POST['logout']) ) {
+                  session_destroy();
+                  header("Location: http://34.66.171.142/index.php");
+
+                }
+                ?>
             </div>
          </div>
+      </div>
+
+
    </body>
 </html>
