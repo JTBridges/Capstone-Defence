@@ -24,6 +24,10 @@ public class Controls : MonoBehaviour
     public float distance;
     Vector3 playerPrevPos, playerMoveDir;
 
+    public float xaxis;
+    public float yaxis;
+    public float zaxis;
+
 /*
     // Start is called before the first frame update
     void Start()
@@ -80,13 +84,16 @@ public class Controls : MonoBehaviour
             offset = camTrans.transform.position - lichTrans.transform.position;
             distance = offset.magnitude;
             playerPrevPos = camTrans.transform.position;
-        
+        xaxis = sticks[1].Horizontal;
+        zaxis = sticks[1].Vertical;
         }
         // Update is called once per frame
         //lines starting with # are for platform dependent compilation.
         void Update()
         {
-            anim.SetBool("isMoving", false);
+        xaxis = sticks[1].Horizontal;
+        zaxis = sticks[1].Vertical;
+        anim.SetBool("isMoving", false);
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
             Vector3 vec = new Vector3(sticks[1].Horizontal, 0, sticks[1].Vertical);
             if (vec != Vector3.zero)
