@@ -49,7 +49,7 @@ public class newControls : MonoBehaviour
     void FixedUpdate()
     {
         vertical = sticks[1].Vertical;
-        horizontal = sticks[1].Horizontal;
+        horizontal = sticks[0].Horizontal;
 
 
         Vector3 velocity = (transform.forward * vertical) * speed * Time.fixedDeltaTime;

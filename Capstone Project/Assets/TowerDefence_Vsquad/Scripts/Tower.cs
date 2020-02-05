@@ -70,11 +70,11 @@ public class Tower : MonoBehaviour {
         // Shooting
                
 
-            if (!isShoot)
-            {
-                StartCoroutine(shoot());
+        if (!isShoot)
+        {
+          StartCoroutine(shoot());
 
-            }
+        }
 
         
         if (Catcher == true)
@@ -110,7 +110,7 @@ public class Tower : MonoBehaviour {
         {
             GameObject b = GameObject.Instantiate(bullet, shootElement.position, Quaternion.identity) as GameObject;
             b.GetComponent<TowerBullet>().target = target;
-            b.GetComponent<TowerBullet>().twr = this;
+            //b.GetComponent<TowerBullet>().twr = this;
           
         }
 

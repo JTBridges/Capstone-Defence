@@ -9,7 +9,7 @@ public class TowerBullet : MonoBehaviour {
     
     public Vector3 impactNormal; 
     Vector3 lastBulletPosition; 
-    public Tower twr;    
+    public towerTargeting twr;    
     float i = 0.05f; // delay time of bullet destruction
 
     
@@ -55,7 +55,7 @@ public class TowerBullet : MonoBehaviour {
     {
         if(other.gameObject.transform == target)
         {
-            target.GetComponent<EnemyHp>().Dmg(twr.dmg); 
+            target.GetComponent<enemyHealth>().Damage(twr.damageAmount); 
             Destroy(gameObject, i); // destroy bullet
             impactParticle = Instantiate(impactParticle, target.transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
             impactParticle.transform.parent = target.transform;

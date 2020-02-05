@@ -13,6 +13,8 @@ public class enemySpawn : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnEnemy", 5f, 10f);
+        enemy1 = Instantiate(Resources.Load("Slime", typeof(GameObject))) as GameObject;
+        enemy2 = Instantiate(Resources.Load("TurtleShell", typeof(GameObject))) as GameObject;
     }
 
     // Update is called once per frame
@@ -32,8 +34,8 @@ public class enemySpawn : MonoBehaviour
         }
         else
         {
-            Instantiate(enemy2, this.transform);
 
+            Instantiate(enemy2, this.transform);
         }
     }
 }

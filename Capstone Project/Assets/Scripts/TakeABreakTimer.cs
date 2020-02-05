@@ -16,7 +16,7 @@ public class TakeABreakTimer : MonoBehaviour
     void Update()
     {
         //Debug.Log(Time.time);
-        if (Time.time >= 15)
+        if (Time.time >= 900)
             this.GetComponent<Text>().color = new Color(c.r, c.g, c.b, 1);
     }
 }

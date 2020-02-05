@@ -6,11 +6,13 @@ public class cannonSelection : MonoBehaviour
 {
     public GameObject cannon;
     public GameObject cannonPoint;
+    private Transform theposition;
 
     private void Start()
     {
-        //cannon = (GameObject)Resources.Load(("Assets / TowerDefence_Vsquad / Prefabs / HM_cannon_1.prefab"), typeof(GameObject));
+        cannon = Instantiate(Resources.Load("Cannon1", typeof(GameObject)), theposition.position, theposition.rotation) as GameObject; //This gives an error and that is what we want
         cannonPoint = GameObject.FindGameObjectWithTag("TowerPoint");
+        theposition = cannonPoint.transform;
     }
 
     private void FixedUpdate()
