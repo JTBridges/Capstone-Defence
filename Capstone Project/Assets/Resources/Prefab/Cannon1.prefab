@@ -59,7 +59,7 @@ MonoBehaviour:
   shootElement: {fileID: 0}
   bullet: {fileID: 5397524738817320512, guid: 19c37e7b790707f40a056fbf6df571fc, type: 3}
   damageAmount: 10
-  shootDelay: 0
+  shootDelay: 1
   locked: 0
 --- !u!1001 &7032415871194679752
 PrefabInstance:
@@ -133,6 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114231757648547274, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
+    - {fileID: 114217725907745512, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 997eda0f844715845a30121b4553e2fd, type: 3}
 --- !u!1 &7034018382896761954 stripped
 GameObject:

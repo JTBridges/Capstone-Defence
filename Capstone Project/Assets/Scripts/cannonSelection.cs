@@ -10,7 +10,7 @@ public class cannonSelection : MonoBehaviour
 
     private void Start()
     {
-        cannon = Instantiate(Resources.Load("Cannon1", typeof(GameObject)), theposition.position, theposition.rotation) as GameObject; //This gives an error and that is what we want
+        cannon = Instantiate(Resources.Load("Cannon1", typeof(GameObject))) as GameObject; //This gives an error and that is what we want
         cannonPoint = GameObject.FindGameObjectWithTag("TowerPoint");
         theposition = cannonPoint.transform;
     }
