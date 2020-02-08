@@ -9,6 +9,7 @@ TagManager:
   - enemyBug
   - Castle
   - Dead
+  - PlayerMesh
   layers:
   - Default
   - TransparentFX
