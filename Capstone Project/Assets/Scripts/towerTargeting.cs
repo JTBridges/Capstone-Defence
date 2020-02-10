@@ -119,7 +119,6 @@ public class towerTargeting : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if(other.CompareTag("enemyBug") && !locked)
         {
             currentTarget = other.gameObject.transform;
