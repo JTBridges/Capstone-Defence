@@ -10,6 +10,7 @@ TagManager:
   - Castle
   - Dead
   - PlayerMesh
+  - PlaySoundSourceTag
   layers:
   - Default
   - TransparentFX
