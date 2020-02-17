@@ -11,6 +11,8 @@ TagManager:
   - Dead
   - PlayerMesh
   - PlaySoundSourceTag
+  - Tree
+  - resourceTarget
   layers:
   - Default
   - TransparentFX
