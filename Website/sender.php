@@ -7,7 +7,7 @@ $sessmail = $_SESSION['regemail'];
 
 $mail = new PHPMailer;
 $mail->setFrom('capstonedef@gmail.com');
-$mail->addAddress($sessmailx);
+$mail->addAddress('jmoney5468@gmail.com');
 $mail->Subject = 'Account Verification For Capstone Defense';
 $mail->Body = 'Visit the following link to activate your account: ';
 $mail->IsSMTP();
