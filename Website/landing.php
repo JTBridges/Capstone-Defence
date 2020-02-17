@@ -31,7 +31,8 @@
          <div class="container">
             <div class="row text-center justify-content-center">
                <div class="col">
-                  <h3 class="text-center">Information Coming Soon</h3>
+                  <h3 class="text-center">Account Created!</h3>
+                  <h4 class="text-center">Account has been made, please check your email for a verification code to get started!</h4>
                </div>
             </div>
          </div>

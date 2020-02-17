@@ -29,54 +29,6 @@
             </ul>
          </div>
       </nav>
-
-
-      <div class="container">
-         <div class="row text-center justify-content-center">
-            <div class="col">
-               <h3 class="text-center">Capstone Defense</h3>
-               <h4>Log in or Register to continue</h4>
-               <div>
-                 <!-- This shit gon' bang-->
-                 <div class="wrapper">
-
-                   <ul id="sb-slider" class="sb-slider">
-                     <li>
-                       <img src="img/1.jpg" alt="image1"/>
-                     </li>
-                     <li>
-                       <img src="img/2.jpg" alt="image2"/>
-                     </li>
-                     <li>
-                       <img src="img/3.jpg" alt="image1"/>
-                     </li>
-                   </ul>
-
-                   <div id="nav-arrows" class="nav-arrows">
-                     <a href="#">Next</a>
-                     <a href="#">Previous</a>
-                   </div>
-
-                 </div><!-- /wrapper -->
-
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="container">
-         <div class="row text-center justify-content-center">
-            <div class="col">
-               <h4 class="text-center">What is this about?</h4>
-               <h5 style="color:white">
-                This project is unity game to create a new and unique take on tower defense. Using a third person view points, we are able to create fun and fresh
-                game experience which saves users highscores so they can compete with their friends! The game has multiple difficulty modes so the user can challenge themselves
-                and earn more points as well. To begin, register to save your scores or login if you have already have an account.
-              </h4>
-               <div>
-               </div>
-            </div>
-         </div>
-      </div>
       <div class="container">
          <div class="row text-center justify-content-center">
             <div class="col">
@@ -154,6 +106,66 @@
                     <td>Chastrov</td>
                     <td>20100</td>
                   </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Destroyer</td>
+                    <td>Denis</td>
+                    <td>25500</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Jacko</td>
+                    <td>Jackson</td>
+                    <td>25240</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">13</th>
+                    <td>Cheese</td>
+                    <td>Chad</td>
+                    <td>25002</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">14</th>
+                    <td>Dackary234</td>
+                    <td>Damon</td>
+                    <td>20321</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">15</th>
+                    <td>Cheese</td>
+                    <td>Chad</td>
+                    <td>20000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td>Cheese</td>
+                    <td>Chad</td>
+                    <td>24902</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">17</th>
+                    <td>Jameson</td>
+                    <td>James</td>
+                    <td>23132</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">18</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>22100</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">19</th>
+                    <td>ChaosElemental</td>
+                    <td>Chastrov</td>
+                    <td>21003</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">20</th>
+                    <td>ChaosElemental</td>
+                    <td>Chastrov</td>
+                    <td>20100</td>
+                  </tr>
                 </tbody>
               </table>
                <div>
@@ -161,74 +173,5 @@
             </div>
          </div>
       </div>
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-      <script type="text/javascript" src="js/jquery.slicebox.js"></script>
-      <script type="text/javascript">
-        $(function() {
-
-          var Page = (function() {
-
-            var $navArrows = $( '#nav-arrows' ).hide(),
-              $navOptions = $( '#nav-options' ).hide(),
-              $shadow = $( '#shadow' ).hide(),
-              slicebox = $( '#sb-slider' ).slicebox( {
-                onReady : function() {
-
-                  $navArrows.show();
-                  $navOptions.show();
-                  $shadow.show();
-
-                },
-                orientation : 'h',
-                cuboidsCount : 3
-              } ),
-
-              init = function() {
-
-                initEvents();
-
-              },
-              initEvents = function() {
-
-                // add navigation events
-                $navArrows.children( ':first' ).on( 'click', function() {
-
-                  slicebox.next();
-                  return false;
-
-                } );
-
-                $navArrows.children( ':last' ).on( 'click', function() {
-
-                  slicebox.previous();
-                  return false;
-
-                } );
-
-                $( '#navPlay' ).on( 'click', function() {
-
-                  slicebox.play();
-                  return false;
-
-                } );
-
-                $( '#navPause' ).on( 'click', function() {
-
-                  slicebox.pause();
-                  return false;
-
-                } );
-
-              };
-
-              return { init : init };
-
-          })();
-
-          Page.init();
-
-        });
-      </script>
-      <
-   </body>
-</html>
+    </body>
+ </html>

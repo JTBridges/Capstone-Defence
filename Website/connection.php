@@ -8,6 +8,7 @@ define('databaseName', 'capstone');
 $connect = mysqli_connect(hostname, user, password, databaseName);
 if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
-}
+} 
+#echo "Connected successfully";
 
 ?>
