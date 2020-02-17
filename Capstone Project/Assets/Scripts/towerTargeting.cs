@@ -17,6 +17,7 @@ public class towerTargeting : MonoBehaviour
     bool shooting;
     public bool locked;
 
+
     void Start()
     {
         
@@ -37,7 +38,9 @@ public class towerTargeting : MonoBehaviour
         }
     }
 
-    
+
+
+
     void Update()
     {
         //Look at target

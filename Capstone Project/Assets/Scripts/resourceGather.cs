@@ -7,13 +7,9 @@ public class resourceGather : MonoBehaviour
 {
     public Transform resourceTarget;
     public Text resourceAmount;
-    public int resourceNumber;
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Text enemyCount;
+    public int resourceNumber = 0;
+    public int monstersKilled = 0;
 
     void OnTriggerEnter(Collider other)
     {
@@ -40,6 +36,12 @@ public class resourceGather : MonoBehaviour
         updateResources();
     }
 
+    public void incrementMonsterKill()
+    {
+        monstersKilled++;
+        updateResources();
+    }
+
     public int getcannonResources()
     {
         return resourceNumber;
@@ -47,6 +49,7 @@ public class resourceGather : MonoBehaviour
 
     void updateResources()
     {
+        enemyCount.text = monstersKilled.ToString();
         resourceAmount.text = resourceNumber.ToString();
     }
 
