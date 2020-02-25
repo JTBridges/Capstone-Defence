@@ -25,44 +25,52 @@ public class WorldPrefabs : MonoBehaviour
     public List<GameObject> pineTreeTall2;
     public GameObject Spawner;
 
-    public int worldNumber = 0;
+    public int worldNumber;
 
-    public float valueGround;
-    public float decider;
-
-    public List<GameObject> list1 = new List<GameObject>(1000);
+    public List<int> list1 = new List<int>(1000);
     
     void Start()
-    {
-        Debug.Log("1");
+    {       
         createWorld();
-        //list1.Add(selectTerrain(1));
     }
 
     public void createWorld()
     {
         int listNumber = 0;
-        Debug.Log("2");
 
         for (int i = 0; i <= 100; i += 2)
         {
-            Debug.Log("6");
             for (int j = 0; j <= 100; j += 2)
             {
-                if (list1[listNumber] == null)
+                if (list1[listNumber] == 0)
                 {
-                    Debug.Log("4");
                     if (i == 0 || i == 100 || j == 100 || j == 0)
                     {
 
                         spawnTerrain(selectTerrain(4), i, 3, j);
-
+                        list1.Add(4);
                         spawnTerrain(selectTerrain(5), i, 5, j);
+                        list1.Add(5);
+                    }
+                    else
+                    {
+                        spawnTerrain(selectTerrain(1), i, 1, j);
+                        int groundItemChance = SpawnChoice(1, 10);
+                        if(groundItemChance >= 9)
+                        {
+                            int item = SpawnChoice(9, 19);
+                            spawnTerrain(selectTerrain(item), i, SpawnForestHeight(item), j);
+                            list1.Add(item);
+                        }                        
                     }
                 }
             }
         }
-        Debug.Log("5");
+    }
+
+    private int SpawnChoice(int min, int max)
+    {
+        return Random.Range(min, max);
     }
 
     /*
@@ -73,10 +81,10 @@ public class WorldPrefabs : MonoBehaviour
      * 5 - Wall2
      * 6 - Bridge
      * 7 - Bridge Wide
-     * 8 - Wood Box
+     * 8 - Spawn Ground
      * 9 - Grass1
      * 10 - Grass2
-     * 11 - Spawn Ground
+     * 11 - Wood Box
      * 12 - appleTreeShort
      * 13 - appleTreeTall
      * 14 - roundTreeShort
@@ -85,8 +93,37 @@ public class WorldPrefabs : MonoBehaviour
      * 17 - pineTreeShort2
      * 18 - pineTreeTall
      * 19 - pineTreeTall2
+     * 20 - null
      * 
      */
+
+    private float SpawnDesertHeight(int item)
+    {
+        switch(item)
+        {
+            default:
+                return 2;
+        }
+    }
+    private float SpawnForestHeight(int item)
+    {
+        switch(item)
+        {
+            case 11:
+                return 2.75f;
+            case 16:
+                return 3;
+            case 17:
+                return 4;
+            case 18:
+                return 3;
+            case 19:
+                return 4;
+            default:
+                return 2;
+        }
+    }
+
 
     public GameObject selectTerrain(int x)
     {
@@ -107,13 +144,13 @@ public class WorldPrefabs : MonoBehaviour
             case 7:
                 return BridgeWide[worldNumber];
             case 8:
-                return woodBox[worldNumber];
+                return spawnGround[worldNumber]; 
             case 9:
                 return grass1[worldNumber];
             case 10:
                 return grass2[worldNumber];
             case 11:
-                return spawnGround[worldNumber];
+                return woodBox[worldNumber];
             case 12:
                 return appleTreeShort[worldNumber];
             case 13:
@@ -135,7 +172,7 @@ public class WorldPrefabs : MonoBehaviour
         }
     }
 
-    void spawnTerrain(GameObject obj, int x, int y, int z)
+    void spawnTerrain(GameObject obj, float x, float y, float z)
     {
         Instantiate(obj, new Vector3(x, y, z), Quaternion.identity, this.transform);
     }
