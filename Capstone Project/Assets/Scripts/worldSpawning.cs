@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class worldSpawning : MonoBehaviour
 {
-    public GameObject ground;
+    /*public GameObject ground;
     public GameObject otherGround;
     public GameObject bush;
     public GameObject castle;
@@ -58,6 +58,6 @@ public class worldSpawning : MonoBehaviour
         }
             
     }
-
+    */
 
 }
