@@ -2814,6 +2814,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9069519967997812252, guid: c1b34865a7a607f4c8dd3dadda44a5dc,
         type: 3}
+      propertyPath: list1.Array.size
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069519967997812252, guid: c1b34865a7a607f4c8dd3dadda44a5dc,
+        type: 3}
       propertyPath: Wall1.Array.data[1]
       value: 
       objectReference: {fileID: 1696995576100380, guid: 9c55c3f33cde6ea4fbee11ccbd2264eb,
