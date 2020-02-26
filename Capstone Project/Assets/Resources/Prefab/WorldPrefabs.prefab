@@ -140,5 +140,4 @@ MonoBehaviour:
   - {fileID: 0}
   Spawner: {fileID: 8268614287595686009, guid: 9376f9d9a65e339458703bebd8999b75, type: 3}
   worldNumber: 1
-  valueGround: 0
-  decider: 0
+  list1: 00000000

@@ -23,52 +23,173 @@ public class WorldPrefabs : MonoBehaviour
     public List<GameObject> pineTreeShort2;
     public List<GameObject> pineTreeTall;
     public List<GameObject> pineTreeTall2;
+    public List<GameObject> Objective;
     public GameObject Spawner;
 
     public int worldNumber;
 
-    public List<int> list1 = new List<int>(1000);
+    public List<int> ItemList = new List<int>(1000);
+    public List<int> GroundList = new List<int>(1000);
+    public int listInc;
+    public int listInc2;
     
     void Start()
-    {       
+    {
+        listInc = 1;
+        listInc2 = 1;
         createWorld();
     }
 
     public void createWorld()
     {
-        int listNumber = 0;
 
         for (int i = 0; i <= 100; i += 2)
         {
             for (int j = 0; j <= 100; j += 2)
             {
-                if (list1[listNumber] == 0)
+                if (i == 0 || i == 100 || j == 100 || j == 0)
                 {
-                    if (i == 0 || i == 100 || j == 100 || j == 0)
-                    {
 
-                        spawnTerrain(selectTerrain(4), i, 3, j);
-                        list1.Add(4);
-                        spawnTerrain(selectTerrain(5), i, 5, j);
-                        list1.Add(5);
-                    }
-                    else
+                    spawnTerrain(selectTerrain(4), i, 3, j);
+                    spawnTerrain(selectTerrain(5), i, 5, j);
+                }
+                else if (i == 50 && j == 50)
+                {
+                    spawnTerrain(selectTerrain(20), i, 2, j);
+                    int groundType = GroundWeight();
+                    spawnTerrain(selectTerrain(groundType), i, 1, j);
+                    AddToGroundList(groundType);
+                }
+                else if ((i >= 44 && i <= 56) && (j >= 44 && j <= 56))
+                {
+                    int groundType = GroundWeight();
+                    spawnTerrain(selectTerrain(groundType), i, 1, j);
+                    AddToGroundList(groundType);
+                }
+                else
+                {
+                    int groundType = GroundWeight();
+                    spawnTerrain(selectTerrain(groundType), i, 1, j);
+                    AddToGroundList(groundType);
+                    int groundItemChance = SpawnChance(1, 10);
+                    if(groundItemChance >= 9)
                     {
-                        spawnTerrain(selectTerrain(1), i, 1, j);
-                        int groundItemChance = SpawnChoice(1, 10);
-                        if(groundItemChance >= 9)
+                        int item = SpawnChance(8, 19);
+                        if(worldNumber == 1) //Desert
                         {
-                            int item = SpawnChoice(9, 19);
+                            spawnTerrain(selectTerrain(item), i, SpawnDesertHeight(item), j);
+                        }
+                        else
+                        {
                             spawnTerrain(selectTerrain(item), i, SpawnForestHeight(item), j);
-                            list1.Add(item);
-                        }                        
-                    }
+                        }
+
+                        AddToItemList(item);
+                    }                        
                 }
             }
         }
     }
 
-    private int SpawnChoice(int min, int max)
+    private int ItemWeight()
+    {
+        return 0;
+    }
+
+    private int GroundWeight()
+    {
+        int ChanceToSpawn = SpawnChance(1, 10);
+        if (listInc2 < 5)
+        {
+            return 1;
+        }
+        else {
+            if (GroundList[listInc2 - 1] == 1)
+            {
+                if (GroundList[listInc2 - 2] == 1)
+                {
+                    if (GroundList[listInc2 - 3] == 1)
+                    {
+                        if (ChanceToSpawn <= 4)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 2;
+                        }
+                    }
+                    if (ChanceToSpawn <= 7)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
+                }
+                if (ChanceToSpawn <= 9)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
+
+            }
+            if (GroundList[listInc2 - 1] == 2)
+            {
+                if (GroundList[listInc2 - 2] == 2)
+                {
+                    if (GroundList[listInc2 - 3] == 2)
+                    {
+                        if (ChanceToSpawn <= 3)
+                        {
+                            return 2;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                    if (ChanceToSpawn <= 6)
+                    {
+                        return 2;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                if (ChanceToSpawn <= 8)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+
+            }
+        }
+        return 3;
+    }
+
+    private void AddToItemList(int x)
+    {
+        ItemList.Add(x);
+        listInc++;
+
+    }
+    private void AddToGroundList(int x)
+    {
+        GroundList.Add(x);
+        listInc2++;
+
+    }
+
+    private int SpawnChance(int min, int max)
     {
         return Random.Range(min, max);
     }
@@ -76,12 +197,12 @@ public class WorldPrefabs : MonoBehaviour
     /*
      * 1 - Ground1
      * 2 - Ground2
-     * 3 - Barrel
+     * 3 - Spawn Ground
      * 4 - Wall1
      * 5 - Wall2
      * 6 - Bridge
      * 7 - Bridge Wide
-     * 8 - Spawn Ground
+     * 8 - Barrel
      * 9 - Grass1
      * 10 - Grass2
      * 11 - Wood Box
@@ -101,6 +222,24 @@ public class WorldPrefabs : MonoBehaviour
     {
         switch(item)
         {
+            case 8:
+                return 2;
+            case 9:
+                return 2;
+            case 10:
+                return 2;
+            case 11:
+                return 3.6f;
+            case 12:
+            case 14:
+            case 16:
+            case 17:
+                return 2.4f;
+            case 13:
+            case 15:
+            case 18:
+            case 19:
+                return 2.7f;
             default:
                 return 2;
         }
@@ -109,8 +248,10 @@ public class WorldPrefabs : MonoBehaviour
     {
         switch(item)
         {
+            case 8:
+                return 2.8f;
             case 11:
-                return 2.75f;
+                return 2.52f;
             case 16:
                 return 3;
             case 17:
@@ -134,7 +275,7 @@ public class WorldPrefabs : MonoBehaviour
             case 2:
                 return ground2[worldNumber];
             case 3:
-                return Barrel[worldNumber];
+                return spawnGround[worldNumber];
             case 4:
                 return Wall1[worldNumber];
             case 5:
@@ -144,7 +285,7 @@ public class WorldPrefabs : MonoBehaviour
             case 7:
                 return BridgeWide[worldNumber];
             case 8:
-                return spawnGround[worldNumber]; 
+                return Barrel[worldNumber];
             case 9:
                 return grass1[worldNumber];
             case 10:
@@ -167,6 +308,8 @@ public class WorldPrefabs : MonoBehaviour
                 return pineTreeTall[worldNumber];
             case 19:
                 return pineTreeTall2[worldNumber];
+            case 20:
+                return Objective[worldNumber];
             default:
                 return ground2[worldNumber];
         }
