@@ -13,6 +13,7 @@ TagManager:
   - PlaySoundSourceTag
   - Tree
   - resourceTarget
+  - WorldSpawner
   layers:
   - Default
   - TransparentFX

@@ -30,6 +30,7 @@ public class WorldPrefabs : MonoBehaviour
 
     public List<int> ItemList = new List<int>(1000);
     public List<int> GroundList = new List<int>(1000);
+    //public List<GameObject> GroundObject = new List<GameObject>(1000);
     public int listInc;
     public int listInc2;
     
@@ -71,8 +72,8 @@ public class WorldPrefabs : MonoBehaviour
                     int groundType = GroundWeight();
                     spawnTerrain(selectTerrain(groundType), i, 1, j);
                     AddToGroundList(groundType);
-                    int groundItemChance = SpawnChance(1, 10);
-                    if(groundItemChance >= 9)
+                    int groundItemChance = SpawnChance(1, 999);
+                    if(groundItemChance >= 970)
                     {
                         int item = SpawnChance(8, 19);
                         if(worldNumber == 1) //Desert
@@ -182,11 +183,26 @@ public class WorldPrefabs : MonoBehaviour
         listInc++;
 
     }
+    public void RemoveFromItemList(int x)
+    {
+        ItemList[x] = 0;
+    }
+    public void ChangeItemList(int x, int y)
+    {
+        ItemList[x] = y;
+    }
     private void AddToGroundList(int x)
     {
         GroundList.Add(x);
         listInc2++;
-
+    }
+    public void RemoveFromGroundList(int x)
+    {
+        GroundList[x] = 0;
+    }
+    public void ChangeGroundList(int x, int y)
+    {
+        GroundList[x] = y;
     }
 
     private int SpawnChance(int min, int max)
@@ -319,6 +335,16 @@ public class WorldPrefabs : MonoBehaviour
     {
         Instantiate(obj, new Vector3(x, y, z), Quaternion.identity, this.transform);
     }
+
+    public int GetItemList()
+    {
+        return listInc;
+    }
+    public int GetGroundList()
+    {
+        return listInc2;
+    }
+
     // Update is called once per frame
     void Update()
     {
