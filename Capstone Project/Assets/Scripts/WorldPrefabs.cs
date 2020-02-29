@@ -70,7 +70,16 @@ public class WorldPrefabs : MonoBehaviour
                 else
                 {
                     int groundType = GroundWeight();
-                    spawnTerrain(selectTerrain(groundType), i, 1, j);
+                    if(groundType == 3)
+                    {
+                        spawnTerrain(selectTerrain(groundType), i, 1, j);
+                        spawnTerrain(Spawner, i, 2, j);
+                    }
+                    else
+                    {
+                        spawnTerrain(selectTerrain(groundType), i, 1, j);
+                    }
+          
                     AddToGroundList(groundType);
                     int groundItemChance = SpawnChance(1, 999);
                     if(groundItemChance >= 970)
@@ -100,18 +109,35 @@ public class WorldPrefabs : MonoBehaviour
     private int GroundWeight()
     {
         int ChanceToSpawn = SpawnChance(1, 10);
-        if (listInc2 < 5)
+        int EnemySpawn = SpawnChance(1, 1000);
+        if (EnemySpawn >= 995)
         {
-            return 1;
+            return 3;
         }
-        else {
-            if (GroundList[listInc2 - 1] == 1)
+        else
+        {
+            if (listInc2 < 5)
             {
-                if (GroundList[listInc2 - 2] == 1)
+                return 1;
+            }
+            else
+            {
+                if (GroundList[listInc2 - 1] == 1)
                 {
-                    if (GroundList[listInc2 - 3] == 1)
+                    if (GroundList[listInc2 - 2] == 1)
                     {
-                        if (ChanceToSpawn <= 4)
+                        if (GroundList[listInc2 - 3] == 1)
+                        {
+                            if (ChanceToSpawn <= 4)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                return 2;
+                            }
+                        }
+                        if (ChanceToSpawn <= 7)
                         {
                             return 1;
                         }
@@ -120,7 +146,7 @@ public class WorldPrefabs : MonoBehaviour
                             return 2;
                         }
                     }
-                    if (ChanceToSpawn <= 7)
+                    if (ChanceToSpawn <= 9)
                     {
                         return 1;
                     }
@@ -128,24 +154,24 @@ public class WorldPrefabs : MonoBehaviour
                     {
                         return 2;
                     }
-                }
-                if (ChanceToSpawn <= 9)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 2;
-                }
 
-            }
-            if (GroundList[listInc2 - 1] == 2)
-            {
-                if (GroundList[listInc2 - 2] == 2)
+                }
+                if (GroundList[listInc2 - 1] == 2)
                 {
-                    if (GroundList[listInc2 - 3] == 2)
+                    if (GroundList[listInc2 - 2] == 2)
                     {
-                        if (ChanceToSpawn <= 3)
+                        if (GroundList[listInc2 - 3] == 2)
+                        {
+                            if (ChanceToSpawn <= 3)
+                            {
+                                return 2;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
+                        if (ChanceToSpawn <= 6)
                         {
                             return 2;
                         }
@@ -154,7 +180,7 @@ public class WorldPrefabs : MonoBehaviour
                             return 1;
                         }
                     }
-                    if (ChanceToSpawn <= 6)
+                    if (ChanceToSpawn <= 8)
                     {
                         return 2;
                     }
@@ -162,19 +188,11 @@ public class WorldPrefabs : MonoBehaviour
                     {
                         return 1;
                     }
-                }
-                if (ChanceToSpawn <= 8)
-                {
-                    return 2;
-                }
-                else
-                {
-                    return 1;
-                }
 
+                }
             }
         }
-        return 3;
+        return 1;
     }
 
     private void AddToItemList(int x)
