@@ -8,6 +8,7 @@ public class NewGameButtonScript : MonoBehaviour
 {
     public void NewGame()
     {
+        NewOrLoad.Load = false;
         SceneManager.LoadScene("Start");
     }
 }

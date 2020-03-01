@@ -7,7 +7,7 @@ public class ResumeButton : MonoBehaviour
 {
     public void Resume()
     {
-        SaveScript.resume = true;//this is spaghetti
+        NewOrLoad.Load = true;
         SceneManager.LoadScene("Start");
     }
 }

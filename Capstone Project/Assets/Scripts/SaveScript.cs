@@ -12,11 +12,29 @@ public static class SaveScript
 
     public static void SaveData()
     {
+        int sizeGround = GameObject.Find("WorldPrefabs").GetComponent<WorldPrefabs>().GroundList.Count;
+        int[] groundTemp = new int[sizeGround];
+        for(int i = 0; i < sizeGround; i++)
+        {
+            groundTemp[i] = GameObject.Find("WorldPrefabs").GetComponent<WorldPrefabs>().GroundList[i];
+        }
+
+        int sizeItem = GameObject.Find("WorldPrefabs").GetComponent<WorldPrefabs>().ItemList.Count;
+        int[] itemTemp = new int[sizeItem];
+        for(int i = 0; i < sizeItem; i++)
+        {
+            itemTemp[i] = GameObject.Find("WorldPrefabs").GetComponent<WorldPrefabs>().ItemList[i];
+        }
+
         var save = new Save()
         {
             avatarPosX = GameObject.Find("LichAndCam").transform.position.x,
             avatarPosY = GameObject.Find("LichAndCam").transform.position.y,
             avatarPosZ = GameObject.Find("LichAndCam").transform.position.z,
+
+            groundArr = groundTemp,
+            itemArr = itemTemp
+            
         };
 
         var binForm = new BinaryFormatter();
@@ -30,7 +48,7 @@ public static class SaveScript
     {
         Debug.Log("LoadData called");
 
-        GameObject[] gameObjects = UnityEngine.SceneManagement.SceneManager.GetSceneByName("Start").GetRootGameObjects();
+        GameObject[] gameObjects = UnityEngine.SceneManagement.SceneManager.GetSceneByName("StartV2").GetRootGameObjects();
         Debug.Log(gameObjects.Length);
         if (File.Exists(savePath))
         {
@@ -46,6 +64,10 @@ public static class SaveScript
                     {
                         obj.transform.position = vec;
                     }
+                }
+                foreach(int i in save.groundArr)
+                {
+                    
                 }
             }
         }

@@ -1,9 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class WorldPrefabs : MonoBehaviour
+
+//this class is a heavily modified mash up of WorldPrefabs.cs and SaveScript.cs
+public  class SaveNSpawn: MonoBehaviour
 {
+    private string savePath;
+    private void Awake()
+    {
+        savePath = Application.persistentDataPath + "/gamesave.save";
+    }
+    private void Start()
+    {
+       if(NewOrLoad.Load)
+       {
+            LoadData();
+       }
+       else
+       {
+            Debug.Log("hello? should be making new world");
+            createWorld();
+       }
+    }
+
     public List<GameObject> Barrel;
     public List<GameObject> Wall1;
     public List<GameObject> Wall2;
@@ -25,23 +47,14 @@ public class WorldPrefabs : MonoBehaviour
     public List<GameObject> pineTreeTall2;
     public List<GameObject> Objective;
     public GameObject Spawner;
-
     public int worldNumber;
 
-    public List<int> ItemList = new List<int>(1000);
-    public List<int> GroundList = new List<int>(1000);
-    //public List<GameObject> GroundObject = new List<GameObject>(1000);
-    public int listInc;
-    public int listInc2;
-    
-    void Start()
-    {
-        listInc = 1;
-        listInc2 = 1;
-        createWorld();
-    }
+    private List<int> ItemList = new List<int>(1000);
+    private List<int> GroundList = new List<int>(1000);
+    private int listInc = 1;
+    private int listInc2 = 1;
 
-    public void createWorld()
+    private void createWorld()
     {
 
         for (int i = 0; i <= 100; i += 2)
@@ -50,7 +63,6 @@ public class WorldPrefabs : MonoBehaviour
             {
                 if (i == 0 || i == 100 || j == 100 || j == 0)
                 {
-
                     spawnTerrain(selectTerrain(4), i, 3, j);
                     spawnTerrain(selectTerrain(5), i, 5, j);
                 }
@@ -70,7 +82,7 @@ public class WorldPrefabs : MonoBehaviour
                 else
                 {
                     int groundType = GroundWeight();
-                    if(groundType == 3)
+                    if (groundType == 3)
                     {
                         spawnTerrain(selectTerrain(groundType), i, 1, j);
                         spawnTerrain(Spawner, i, 2, j);
@@ -79,13 +91,13 @@ public class WorldPrefabs : MonoBehaviour
                     {
                         spawnTerrain(selectTerrain(groundType), i, 1, j);
                     }
-          
+
                     AddToGroundList(groundType);
                     int groundItemChance = SpawnChance(1, 999);
-                    if(groundItemChance >= 970)
+                    if (groundItemChance >= 970)
                     {
                         int item = SpawnChance(8, 19);
-                        if(worldNumber == 1) //Desert
+                        if (worldNumber == 1) //Desert
                         {
                             spawnTerrain(selectTerrain(item), i, SpawnDesertHeight(item), j);
                         }
@@ -95,7 +107,7 @@ public class WorldPrefabs : MonoBehaviour
                         }
                         AddToItemList(item);
                     }
-                    else//James, this is the part I added
+                    else
                     {
                         int item = 0;//signifying a non-item.
                         AddToItemList(item);
@@ -104,12 +116,6 @@ public class WorldPrefabs : MonoBehaviour
             }
         }
     }
-
-    private int ItemWeight()
-    {
-        return 0;
-    }
-
     private int GroundWeight()
     {
         int ChanceToSpawn = SpawnChance(1, 10);
@@ -205,26 +211,10 @@ public class WorldPrefabs : MonoBehaviour
         listInc++;
 
     }
-    public void RemoveFromItemList(int x)
-    {
-        ItemList[x] = 0;
-    }
-    public void ChangeItemList(int x, int y)
-    {
-        ItemList[x] = y;
-    }
     private void AddToGroundList(int x)
     {
         GroundList.Add(x);
         listInc2++;
-    }
-    public void RemoveFromGroundList(int x)
-    {
-        GroundList[x] = 0;
-    }
-    public void ChangeGroundList(int x, int y)
-    {
-        GroundList[x] = y;
     }
 
     private int SpawnChance(int min, int max)
@@ -258,7 +248,7 @@ public class WorldPrefabs : MonoBehaviour
 
     private float SpawnDesertHeight(int item)
     {
-        switch(item)
+        switch (item)
         {
             case 8:
                 return 2;
@@ -284,7 +274,7 @@ public class WorldPrefabs : MonoBehaviour
     }
     private float SpawnForestHeight(int item)
     {
-        switch(item)
+        switch (item)
         {
             case 8:
                 return 2.8f;
@@ -304,9 +294,9 @@ public class WorldPrefabs : MonoBehaviour
     }
 
 
-    public GameObject selectTerrain(int x)
+    private GameObject selectTerrain(int x)
     {
-        switch(x)
+        switch (x)
         {
             case 1:
                 return ground1[worldNumber];
@@ -353,23 +343,62 @@ public class WorldPrefabs : MonoBehaviour
         }
     }
 
-    void spawnTerrain(GameObject obj, float x, float y, float z)
+    private void spawnTerrain(GameObject obj, float x, float y, float z)
     {
-        Instantiate(obj, new Vector3(x, y, z), Quaternion.identity, this.transform);
+        Instantiate(obj, new Vector3(x, y, z), Quaternion.identity, this.transform);     
     }
 
-    public int GetItemList()
+    private void SaveData()
     {
-        return listInc;
-    }
-    public int GetGroundList()
-    {
-        return listInc2;
-    }
+        Transform avatarTrans = GameObject.Find("LichAndCam").transform;
+        var save = new Save()
+        {
+            avatarPosX = avatarTrans.position.x,
+            avatarPosY = avatarTrans.position.y,
+            avatarPosZ = avatarTrans.position.z,
 
-    // Update is called once per frame
-    void Update()
+            avatarRotW = avatarTrans.rotation.w,
+            avatarRotX = avatarTrans.rotation.x,
+            avatarRotY = avatarTrans.rotation.y,
+            avatarRotZ = avatarTrans.rotation.z,
+
+            groundArr = GroundList.ToArray(),
+            itemArr = ItemList.ToArray()
+        };
+        var binForm = new BinaryFormatter();
+        using (var fileStream = File.Create(savePath))
+        {
+            binForm.Serialize(fileStream, save);
+        }
+    }
+    private void LoadData()
     {
-        
+        if (File.Exists(savePath))
+        {
+            GameObject lichAndCam = GameObject.Find("LichAndCam");
+            GameObject instantiator = GameObject.Find("Instantiator");
+            Save save;
+            var binaryFormatter = new BinaryFormatter();
+            using (var fileStream = File.Open(savePath, FileMode.Open))
+            {
+                save = (Save)binaryFormatter.Deserialize(fileStream);
+                Vector3 vec = new Vector3(save.avatarPosX, save.avatarPosY, save.avatarPosZ);
+                Quaternion rot = new Quaternion(save.avatarRotW, save.avatarRotX, save.avatarRotY, save.avatarRotZ);
+                lichAndCam.transform.position = vec;
+                lichAndCam.transform.rotation = rot;
+            }
+            for(int i = 0; i < save.groundArr.Length; i++)
+            {
+                spawnTerrain(selectTerrain(save.groundArr[i]), 2 * ((i / 50) + 1), 0, 2 * ((i - 1) % 49) + 2);
+            }
+            for (int i = 0; i < save.itemArr.Length; i++)
+            {
+                spawnTerrain(selectTerrain(save.itemArr[i]), 2 * ((i / 50) + 1), 0, 2 * ((i - 1) % 49) + 2);
+            }
+        }
+        else
+        {
+            Debug.Log("savePath did not exist");
+        }
     }
 }

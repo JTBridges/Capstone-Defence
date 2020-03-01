@@ -7,7 +7,7 @@ public class RightupSetScript : MonoBehaviour
 {
     public void menu()
     {
-        SceneManager.LoadScene("Landing");
+        SceneManager.LoadScene("InGameMenu");
         SaveScript.SaveData();
     }
 }

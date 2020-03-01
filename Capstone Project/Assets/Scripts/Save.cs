@@ -5,9 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class Save
 {
-    //apparently Vector3 isn't serializable
     public float avatarPosX;
     public float avatarPosY;
     public float avatarPosZ;
-    //public Quaternion avatarRot;
+
+    public float avatarRotW;
+    public float avatarRotX;
+    public float avatarRotY;
+    public float avatarRotZ;
+
+    public int[] groundArr;
+    public int[] itemArr;
 }
