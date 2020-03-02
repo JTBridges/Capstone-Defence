@@ -9,12 +9,15 @@ public class enemyHealth : MonoBehaviour
     private const float moveSpeed = .02f;
     public GameObject thePlayer;
     public GameObject resourceObject;
+    public GameObject manager;
 
     void Start()
     {
         anim = transform.GetComponent<Animator>();
         thePlayer = GameObject.FindGameObjectWithTag("Player");
         resourceObject = GameObject.FindGameObjectWithTag("resourceTarget");
+        manager = GameObject.FindGameObjectWithTag("Manager");
+        manager.GetComponent<waveSystem>().incrementSpawn();
     }
 
     public void Damage(int dmg)
@@ -45,5 +48,6 @@ public class enemyHealth : MonoBehaviour
     private void OnDestroy()
     {
         resourceObject.GetComponent<resourceGather>().incrementMonsterKill();
+        manager.GetComponent<waveSystem>().removeEnemyAmount();
     }
 }

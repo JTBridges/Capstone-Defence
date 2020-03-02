@@ -45,4 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
   enemy2: {fileID: 1837317425425208, guid: 3aec22b5d3f3c2947bb81040b56e5f96, type: 3}
+  Manager: {fileID: 0}
   randomNumber: 0
+  SpawnTimer: 10
