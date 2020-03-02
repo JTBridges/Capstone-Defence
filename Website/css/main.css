@@ -7,6 +7,13 @@
 input{
   margin-top:10px;
 }
+
+form button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 body {
  background-color: #207179 !important;
  }
