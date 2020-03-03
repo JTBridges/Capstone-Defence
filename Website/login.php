@@ -15,20 +15,32 @@
       <title>Capstone Defense</title>
    </head>
    <body>
+     <?php session_start() ?>
      <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-sm">
          <a class="navbar-brand" href="#">Capstone Defense</a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"> <span class="navbar-toggler-icon"></span></button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/index.php">Home</a></li>
-               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/about.html">About</a></li>
                <li class="nav-item"><a class="nav-link" href="https://github.com/JTBridges/Capstone-Defence.git">GitHub</a></li>
-               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/login.php">Login</a></li>
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/register.php">Register</a></li>
-               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/UnityIndex.html">Demo</a></li>
+               <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/UnityIndex.php">Demo</a></li>
                <li class="nav-item"><a class="nav-link" href="http://34.66.171.142/leaderboards.php">Leaderboard</a></li>
             </ul>
          </div>
+             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+                   <li class="dropdown order-1">
+                     <button id="login" name="login" class="btn btn-secondary" onclick="window.location.href='myaccount.php'"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <?php if (isset($_SESSION['username'])) : ?>
+                         <?php echo $_SESSION['username'] ?>
+                      <?php else: ?>
+                         Login
+                      <?php endif ?>
+                    </button>
+                  </li>
+               </ul>
+           </div>
+       </div>
       </nav>
 
       <div class="container">
@@ -36,11 +48,12 @@
             <div class="row text-center">
                <div class="col">
                   <h4>Login</h4>
-                  <div style="color:#FFFFFF">
+                  <div class="md-form" style="color:#FFFFFF">
                      <form method="post" action="">
                         <input class="form-control white-border" type="text" placeholder="Username" aria-label="Username" name="loguser" required/>
                         <input class="form-control white-border" type="password" placeholder="Password" aria-label="Password" name="logpass" required/>
-                        <input type="submit" name="submitlog" value="Submit" />
+                        <button type="submit" name="submitlog" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='register.php'">Need an Account?</button>
                      </form>
                      <div style="color:#FFFFFF">
                         <?php
@@ -59,15 +72,15 @@
                              else{
                                $_SESSION['username'] = $username;
                                $_SESSION['password'] = $pass;
-                               header("Location: http://34.66.171.142/myaccount.php");
+                               header("Location: http://34.66.171.142/UnityIndex.php");
                              }
 
                            }
                            ?>
+
                      </div>
                   </div>
                </div>
-
             </div>
          </div>
       </div>
