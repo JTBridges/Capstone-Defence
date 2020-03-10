@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9069519967997812253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9069519967997812255}
+  - component: {fileID: 9069519967997812252}
+  m_Layer: 0
+  m_Name: WorldPrefabs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9069519967997812255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069519967997812253}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 876.4375, y: 520.40625, z: 235.125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9069519967997812252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069519967997812253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f69206ad25d9d45b2e54f776258b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Barrel:
+  - {fileID: 1707827126499572, guid: 31d3a77f906791342bc79acdc84f5218, type: 3}
+  - {fileID: 1851599260321516, guid: 603180f4e14cad44f998ca8340095c80, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  Wall1:
+  - {fileID: 1262887121042734, guid: 89843090f5c38c24c9500fe9490ba5c4, type: 3}
+  - {fileID: 1211032822929094, guid: 66193f0a5e06260479ae023d11f5d8f6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  Wall2:
+  - {fileID: 1113307236115910, guid: 3f28852fcfaa2fc4a9956ddd15ba61f0, type: 3}
+  - {fileID: 1511291819687542, guid: 68dfdd8032876ce4396c3a6e00f03d69, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  Bridge:
+  - {fileID: 1456910657315934, guid: 38fa18ea33367784c891567389fdfb7a, type: 3}
+  - {fileID: 1293886778576848, guid: bd4ba3ced690e024180812879530b9fc, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  BridgeWide:
+  - {fileID: 1935039790392146, guid: ba7e7b47e14ac404fbe09194158fbf80, type: 3}
+  - {fileID: 1840582101094164, guid: 6645d5e35cec19845b6986bfd7e45747, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  woodBox:
+  - {fileID: 1362255755749402, guid: 1b5d1a6deebd81e4bba2448d18378844, type: 3}
+  - {fileID: 1913606116510838, guid: 7837a0e440c9a534ab604175ed3de3a6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  grass1:
+  - {fileID: 1685531937540468, guid: 6c919ec1c1e88a94c95afc28b198b9f8, type: 3}
+  - {fileID: 1164234671884734, guid: 1c24e320d47d7fe45ab0adceb6ad319e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  grass2:
+  - {fileID: 1913777595529458, guid: 4c9f6adf60a275840b716082e3482212, type: 3}
+  - {fileID: 1849534088583780, guid: b42196a03d96beb4d95a742d57c5f5f4, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  ground1:
+  - {fileID: 1619558185565566, guid: 1d9cc67243350f643b8c562ed0503c49, type: 3}
+  - {fileID: 1374047387117784, guid: 3fa788c098c4af845a062e26e06baf8c, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  ground2:
+  - {fileID: 1560257132984952, guid: 5cbae0602ce9acf41a98fda3a353569a, type: 3}
+  - {fileID: 1856401682667272, guid: 8828b445462270e4a82aae9b772ded64, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnGround:
+  - {fileID: 1641819918252310, guid: 13f1670c2e187874784d0f667f9057f5, type: 3}
+  - {fileID: 1241440111119602, guid: 52a975d223714594bbc44a85bf0394a8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  appleTreeShort:
+  - {fileID: 1296487970245184, guid: f4f82206765cef54ca8f19ce34136e8a, type: 3}
+  - {fileID: 1484266505014346, guid: 586bd0539903da04f93ceb71bbd5be83, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  appleTreeTall:
+  - {fileID: 1478007673441398, guid: 7747cd3716304194fb26aa4e29900eb1, type: 3}
+  - {fileID: 1339950852153132, guid: dfa14c2859c89bc498b414cd196b10c5, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  roundTreeShort:
+  - {fileID: 1398384037247820, guid: 018e38b65bc9fb048a9c4271cdad70c2, type: 3}
+  - {fileID: 1581337245130060, guid: 8235ded309c9d5a47a318e3f06854a7f, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  roundTreeTall:
+  - {fileID: 1685073300064356, guid: eb322b3f7ad50984197dced1b53b11ee, type: 3}
+  - {fileID: 1141854476560308, guid: 7e40bbc6be241754e8d7dbdecba49ee1, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  pineTreeShort:
+  - {fileID: 1852941587909970, guid: 45fe3ec28eac2064d985117cf812ef9d, type: 3}
+  - {fileID: 1209007923429022, guid: c6687ed4632e8724b838eb54d9604123, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  pineTreeShort2:
+  - {fileID: 1726046091689300, guid: 7ad57e94574375240b181f8584be81c2, type: 3}
+  - {fileID: 1791388342252440, guid: f78d96e730277024299d695472a3c986, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  pineTreeTall:
+  - {fileID: 1683262223191906, guid: e150e8680dcf9784a89843e55668ad0e, type: 3}
+  - {fileID: 1960967122634668, guid: ba885b66ec0f56f4793da51ffcc3dcf6, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  pineTreeTall2:
+  - {fileID: 1755297518104830, guid: bb8b831afcc06c64f9df984b2ccb8642, type: 3}
+  - {fileID: 1761835656228952, guid: 3c22f9350bc0aa643848b4c60f6f8de8, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  Spawner: {fileID: 8268614287595686009, guid: 9376f9d9a65e339458703bebd8999b75, type: 3}
+  worldNumber: 1
+  list1: 00000000
