@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class landingSpawn : MonoBehaviour
 {
-    public GameObject ground;
+    public GameObject ground;//unfortunately these prefabs all reference groundListNumber.cs which creates hundreds of annoying warnings in the landing screen
     public GameObject otherGround;
     public GameObject bush;
     public GameObject walls;

@@ -15,6 +15,7 @@ TagManager:
   - resourceTarget
   - WorldSpawner
   - Manager
+  - Canvas
   layers:
   - Default
   - TransparentFX
