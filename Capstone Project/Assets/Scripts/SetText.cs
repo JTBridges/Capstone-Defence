@@ -6,10 +6,10 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class SetText : MonoBehaviour
 {
-    public void set()
+    public void onValueChanged(float value)
     {
-        float theme = GameObject.Find("Slider_Theme").GetComponent<Slider>().value;
-        switch (theme)
+        //float theme = GameObject.Find("Slider_Theme").GetComponent<Slider>().value;
+        switch (value)
         {
             case 0:
                 transform.GetChild(0).transform.GetComponent<UnityEngine.UI.Text>().text = "Theme: Forest";
