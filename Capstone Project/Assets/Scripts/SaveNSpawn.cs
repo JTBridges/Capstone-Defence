@@ -13,7 +13,7 @@ public  class SaveNSpawn: MonoBehaviour
     {
         savePath = Application.persistentDataPath + "/gamesave.save";
     }
-    private void Start()
+    /*private void Start()
     {
        if(NewOrLoad.Load)
        {
@@ -24,7 +24,7 @@ public  class SaveNSpawn: MonoBehaviour
             Debug.Log("hello? should be making new world");
             createWorld();
        }
-    }
+    }*/
 
     public List<GameObject> Barrel;
     public List<GameObject> Wall1;

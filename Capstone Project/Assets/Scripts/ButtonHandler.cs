@@ -9,7 +9,6 @@ public class ButtonHandler : MonoBehaviour
 
     public void NewGame()
     {
-        NewOrLoad.Load = false;
         SceneManager.LoadScene("Start");
     }
     public void Settings()
