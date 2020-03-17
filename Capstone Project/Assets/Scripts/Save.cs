@@ -16,4 +16,12 @@ public class Save
 
     public int[] groundArr;
     public int[] itemArr;
+
+    public int worldNumber;//the asthetic theme of the world
+    public bool music;
+    public float volume;
+    public int logs;
+    public int coins;
+    public int kills;
+    public int wave;
 }
