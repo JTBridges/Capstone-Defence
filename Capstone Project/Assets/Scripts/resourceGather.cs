@@ -49,7 +49,7 @@ public class resourceGather : MonoBehaviour
 
     void updateResources()
     {
-        enemyCount.text = monstersKilled.ToString();
+        enemyCount.text = "Kills: " + monstersKilled.ToString();
         resourceAmount.text = resourceNumber.ToString();
     }
 
