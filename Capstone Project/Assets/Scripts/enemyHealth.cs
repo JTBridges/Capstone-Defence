@@ -10,6 +10,7 @@ public class enemyHealth : MonoBehaviour
     public GameObject thePlayer;
     public GameObject resourceObject;
     public GameObject manager;
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -18,11 +19,14 @@ public class enemyHealth : MonoBehaviour
         resourceObject = GameObject.FindGameObjectWithTag("resourceTarget");
         manager = GameObject.FindGameObjectWithTag("Manager");
         manager.GetComponent<waveSystem>().incrementSpawn();
+        healthBar.SetMaxHealth(Health);
     }
 
     public void Damage(int dmg)
     {
         Health -= dmg;
+
+        healthBar.SetHealth(Health);
         anim.SetBool("getHit", true);
     }
 
