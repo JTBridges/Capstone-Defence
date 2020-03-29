@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class AudioControl : MonoBehaviour
 {
+    public void Awake()
+    {
+        check();
+        GameObject.Find("Audio Source").transform.GetComponent<AudioSource>().volume = StaticStuff.volume;
+    }
     public void off()
     {
         StaticStuff.music = false;

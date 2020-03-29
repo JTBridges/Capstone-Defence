@@ -36,6 +36,7 @@ public class WorldPrefabs : MonoBehaviour
     
     void Start()
     {
+        worldNumber = StaticStuff.worldNum;
         listInc = 1;
         listInc2 = 1;
         createWorld();
@@ -365,11 +366,5 @@ public class WorldPrefabs : MonoBehaviour
     public int GetGroundList()
     {
         return listInc2;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
