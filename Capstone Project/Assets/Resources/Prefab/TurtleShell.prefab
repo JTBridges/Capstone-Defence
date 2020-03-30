@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3096e4bbaf62e6741995f7d61e587c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 30
+  Health: 40
   MinionDamage: 10
   SetAttackSpeed: 1
   Attacking: 0
