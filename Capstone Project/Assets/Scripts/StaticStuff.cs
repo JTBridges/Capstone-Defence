@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class StaticStuff
 {
-    public static bool music;
-    public static float volume;
+    public static bool music = true;
+    public static float volume = 1;
+    public static int worldNum = 0;
 }
