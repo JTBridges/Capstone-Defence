@@ -62,6 +62,10 @@ public class enemyHealth : MonoBehaviour
         {
             Attacking = true;
         }
+        if(other.CompareTag("DamageSpell"))
+        {
+            Damage(10);
+        }
     }
     private void FixedUpdate()
     {
@@ -72,6 +76,7 @@ public class enemyHealth : MonoBehaviour
         Attacking = false;
         resourceObject.GetComponent<resourceGather>().incrementMonsterKill();
         manager.GetComponent<waveSystem>().removeEnemyAmount();
+        manager.GetComponent<waveSystem>().decrementSpawn();
     }
 
     

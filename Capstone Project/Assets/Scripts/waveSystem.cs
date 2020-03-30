@@ -10,7 +10,7 @@ public class waveSystem : MonoBehaviour
     public Text waveText;
     public Text enemiesRemaining;
     private int waveTextAmount;
-    private int enemiesRemainingAmount;
+    public int enemiesRemainingAmount;
     private bool canEnemiesSpawn;
     public int Spawned;
     
@@ -24,7 +24,15 @@ public class waveSystem : MonoBehaviour
     
     void Update()
     {
-        enemiesRemaining.text = "Enemies Remaining: " + enemiesRemainingAmount.ToString();
+        enemiesRemaining.text = "Enemies Remaining: " + Spawned.ToString();
+        if(Spawned >= enemiesRemainingAmount)
+        {
+            canEnemiesSpawn = false;
+        }
+        if(Spawned <= 0 && canEnemiesSpawn == false)
+        {
+            nextWaveButton.SetActive(true);
+        }
     }
 
     public void waveStart()
@@ -34,6 +42,12 @@ public class waveSystem : MonoBehaviour
         waveText.text = "Wave: " + waveTextAmount.ToString();
         setEnemies();
         canEnemiesSpawn = true;
+        Spawned = 0;
+    }
+
+    public void decrementSpawn()
+    {
+        Spawned--;
     }
 
     public void incrementSpawn()

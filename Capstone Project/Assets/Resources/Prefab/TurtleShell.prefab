@@ -905,6 +905,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 30
+  MinionDamage: 10
+  SetAttackSpeed: 1
+  Attacking: 0
   thePlayer: {fileID: 0}
   resourceObject: {fileID: 0}
   manager: {fileID: 0}
@@ -1290,6 +1293,11 @@ PrefabInstance:
     - target: {fileID: 4353463003731166354, guid: c5baef0528c2cbf498ef4a4dacc3fef3,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4353463004224533089, guid: c5baef0528c2cbf498ef4a4dacc3fef3,
+        type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
