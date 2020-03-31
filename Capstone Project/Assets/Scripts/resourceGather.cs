@@ -2,14 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class resourceGather : MonoBehaviour
 {
     public Transform resourceTarget;
     public Text resourceAmount;
     public Text enemyCount;
+    public Text currencyAmount;
     public int resourceNumber = 0;
+    public int currencyNumber = 0;
     public int monstersKilled = 0;
+    public int maxWoodAmount = 100;
+    public int maxCurrencyAmount = 100;
+    public ResourceBar woodAmt;
+    public ResourceBar currencyAmt;
+
+
+    private void Start()
+    {
+        woodAmt.SetMaxAmount(maxWoodAmount);
+        currencyAmt.SetMaxAmount(maxCurrencyAmount);
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -39,6 +53,7 @@ public class resourceGather : MonoBehaviour
     public void incrementMonsterKill()
     {
         monstersKilled++;
+        currencyNumber += 10;
         updateResources();
     }
 
@@ -51,6 +66,9 @@ public class resourceGather : MonoBehaviour
     {
         enemyCount.text = "Kills: " + monstersKilled.ToString();
         resourceAmount.text = resourceNumber.ToString();
+        currencyAmount.text = currencyNumber.ToString();
+        woodAmt.SetAmount(resourceNumber);
+        currencyAmt.SetAmount(currencyNumber);
     }
 
 

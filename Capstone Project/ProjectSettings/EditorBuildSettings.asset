@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Start.unity
     guid: c3d0bcb429822234691d4d519efe95e3
   - enabled: 1
-    path: Assets/StartV2.unity
-    guid: 51428a180ad872c459ca1f9212304f66
-  - enabled: 1
-    path: Assets/InGameMenu.unity
-    guid: 5f43690414c4400478a13ec2e23a837c
+    path: Assets/Game Over.unity
+    guid: 4d408d467e4341b46b5bc2a37c113b93
   m_configObjects: {}

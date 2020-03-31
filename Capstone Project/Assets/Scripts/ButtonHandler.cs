@@ -13,13 +13,11 @@ public class ButtonHandler : MonoBehaviour
     }
     public void Settings()
     {
-        SettingsPopup.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        SettingsPopup.transform.localScale = new Vector3(0.46f, 0.4f, 1);
-        SettingsPopup.transform.position = new Vector2(960, 530);
+        SettingsPopup.gameObject.SetActive(true);
     }
     public void CloseSettings()
     {
-        SettingsPopup.transform.SetParent(null);
+        SettingsPopup.gameObject.SetActive(false);
     }
     public void Quit()
     {

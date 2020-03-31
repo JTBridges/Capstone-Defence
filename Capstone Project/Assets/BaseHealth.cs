@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BaseHealth : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class BaseHealth : MonoBehaviour
         if(Health <= 0)
         {
             Destroy(gameObject, 1f);
+            SceneManager.LoadScene("Game Over");
         }
     }
 }
