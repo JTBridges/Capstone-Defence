@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class newControls : MonoBehaviour
 {
-
+    public GameObject rightStick;
+    public GameObject leftStick;
     public Joystick[] sticks;
     private Rigidbody body;
     private Animator anim;
@@ -24,7 +25,7 @@ public class newControls : MonoBehaviour
 
     void Start()
     {
-        sticks = FindObjectsOfType<Joystick>();
+        //sticks = FindObjectsOfType<Joystick>();
         body = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = transform.GetChild(0).GetComponent<Animator>();

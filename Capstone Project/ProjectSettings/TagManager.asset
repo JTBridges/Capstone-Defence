@@ -19,6 +19,8 @@ TagManager:
   - FxTemporaire
   - DamageSpell
   - loginManager
+  - StickLeft
+  - StickRight
   layers:
   - Default
   - TransparentFX
