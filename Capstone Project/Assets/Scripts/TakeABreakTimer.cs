@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class TakeABreakTimer : MonoBehaviour
 {
-    Color c;
-    // Start is called before the first frame update
-    void Start()
-    {
-        c = this.GetComponent<Text>().color;
-    }
+    public GameObject TakeABreak;
+    private bool done = false;
 
-    // Update is called once per frame
     void Update()
     {
-        //Debug.Log(Time.time);
-        if (Time.time >= 900)
-            this.GetComponent<Text>().color = new Color(c.r, c.g, c.b, 1);
+        Debug.Log("checking");
+        if (Time.time >= 20 && !done)
+        {
+            TakeABreak.gameObject.SetActive(true);
+            done = true;
+        }
     }
 }
