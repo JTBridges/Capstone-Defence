@@ -12,7 +12,7 @@ public class json
     public string fname;
     public string lname;
     public string status;
-    public int uID;
+    public string uID;
     public string verification;
 }
 
@@ -23,7 +23,7 @@ public class LoginAPI : MonoBehaviour
     private string URL;
     //user inputs
     public string user;
-    public string pass; 
+    public string pass;
     //gameobjects for pointing 
     public GameObject username; //input field for username 
     public GameObject password; //input field for password 
@@ -38,27 +38,39 @@ public class LoginAPI : MonoBehaviour
     }
     //gets inputs from fields 
     public void getInput()
-        {
-            user = username.GetComponent<Text>().text;
-            pass = password.GetComponent<InputField>().text;
-        }
+    {
+        user = username.GetComponent<Text>().text;
+        pass = password.GetComponent<InputField>().text;
+    }
 
     //login request honestly this isn't the most secure rather standard but it works
     //I will try configuring API to handle post requests but I have been getting errors 
     public void Request()
-    {   
-        URL = "http://34.66.171.142:5000/login?username=" + user + "&password="+pass;
-        StartCoroutine(OnReponse(URL));
+    {
+        URL = "http://34.66.171.142:5000/login?username=" + user + "&password=" + pass;
+        WWW request = new WWW(URL);
+        StartCoroutine(OnReponse(request));
     }
 
     //request handler
-    IEnumerator OnReponse(string req)
+    IEnumerator OnReponse(WWW req)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(req))
+        yield return req;
+        try
+        {
+            procJsonData(req.text);
+            Login session = new Login();
+            session.toLanding();
+        }
+        catch (Exception e)
+        {
+            LoginStatus.GetComponent<Text>().text = req.text;
+        }
+        /*using (UnityWebRequest webRequest = UnityWebRequest.Get(req))
         {
             // Request and wait for the desired page.
             yield return webRequest.SendWebRequest();
-            
+
             string[] pages = req.Split('/');
             int page = pages.Length - 1;
 
@@ -81,13 +93,13 @@ public class LoginAPI : MonoBehaviour
 
             }
 
-        }
+        }*/
     }
 
     private void procJsonData(string URL)
     {
         toField = JsonUtility.FromJson<json>(URL);
-        LoginStatus.GetComponent<Text>().text = "Welcome, "+toField.fname;
+        LoginStatus.GetComponent<Text>().text = "Welcome, " + toField.fname;
     }
 }
 

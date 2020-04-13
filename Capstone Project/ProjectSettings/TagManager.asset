@@ -18,6 +18,7 @@ TagManager:
   - Canvas
   - FxTemporaire
   - DamageSpell
+  - loginManager
   layers:
   - Default
   - TransparentFX

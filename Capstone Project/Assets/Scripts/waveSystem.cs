@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class waveSystem : MonoBehaviour
 {
-
+    public GameObject loginManager;
     public GameObject nextWaveButton;
+    public Text nickName;
     public Text waveText;
     public Text enemiesRemaining;
     private int waveTextAmount;
@@ -16,6 +17,15 @@ public class waveSystem : MonoBehaviour
     
     void Start()
     {
+        try
+        {
+            loginManager = GameObject.FindGameObjectWithTag("loginManager");
+        }
+        catch
+        {
+            Debug.Log("No Login Manager");
+        }
+        nickName.text = loginManager.GetComponent<LoginAPI>().toField.fname;
         canEnemiesSpawn = false;
         waveTextAmount = 0;
         nextWaveButton.SetActive(true);
@@ -78,5 +88,9 @@ public class waveSystem : MonoBehaviour
     public void removeEnemyAmount()
     {
         enemiesRemainingAmount--;
+    }
+    public string waves()
+    {
+        return waveTextAmount.ToString();
     }
 }

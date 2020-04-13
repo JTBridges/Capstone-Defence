@@ -5,7 +5,7 @@ using UnityEngine;
 public class newControls : MonoBehaviour
 {
 
-    private Joystick[] sticks;
+    public Joystick[] sticks;
     private Rigidbody body;
     private Animator anim;
 

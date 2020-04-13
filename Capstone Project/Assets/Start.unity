@@ -365,7 +365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145408164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: 1.999, z: 50}
+  m_LocalPosition: {x: 49, y: 1.999, z: 49}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
@@ -478,7 +478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 630, y: 0}
   m_SizeDelta: {x: 880, y: 184.89996}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &251864178
@@ -521,7 +521,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 131
-    m_Alignment: 5
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -1007,24 +1007,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09bdb414c20b66c41b3d6f02e5be49fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &569062149
@@ -2080,6 +2062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fbbbbab7e570946b9020b7584c8414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sticks: []
   player: {fileID: 0}
   speed: 600
   rotationspeed: 150
@@ -2762,7 +2745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 918.5, y: 450.7}
+  m_AnchoredPosition: {x: 918.5, y: 445}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1343195409
@@ -3047,7 +3030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e3715a13e91ac40b8f1450ef8657e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loginManager: {fileID: 0}
   nextWaveButton: {fileID: 712735590}
+  nickName: {fileID: 251864179}
   waveText: {fileID: 2104521697}
   enemiesRemaining: {fileID: 1213233}
   enemiesRemainingAmount: 0
@@ -3556,7 +3541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -743, y: 288}
+  m_AnchoredPosition: {x: -743, y: 281}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1578583544
