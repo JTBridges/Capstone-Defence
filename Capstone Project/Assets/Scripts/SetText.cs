@@ -20,11 +20,11 @@ public class SetText : MonoBehaviour
                 StaticStuff.worldNum = 1;
                 break;
             case 2:
-                transform.GetChild(0).transform.GetComponent<UnityEngine.UI.Text>().text = "Theme: Dungeon";
+                transform.GetChild(0).transform.GetComponent<UnityEngine.UI.Text>().text = "Theme: Dungeon (Coming Soon!)";
                 StaticStuff.worldNum = 2;
                 break;
             case 3:
-                transform.GetChild(0).transform.GetComponent<UnityEngine.UI.Text>().text = "Theme: Winter";
+                transform.GetChild(0).transform.GetComponent<UnityEngine.UI.Text>().text = "Theme: Winter (Coming Soon!)";
                 StaticStuff.worldNum = 3;
                 break;
         }

@@ -25,7 +25,6 @@ public class newControls : MonoBehaviour
 
     void Start()
     {
-        //sticks = FindObjectsOfType<Joystick>();
         body = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         anim = transform.GetChild(0).GetComponent<Animator>();
@@ -39,7 +38,6 @@ public class newControls : MonoBehaviour
             if (vertical >= .5)
             {
                 anim.SetBool("isRunning", true);
-                //player.transform.rotation = Quaternion.Euler(0, 0, 0);
 
             }
             else if (vertical < 0)
@@ -49,13 +47,11 @@ public class newControls : MonoBehaviour
                     anim.SetBool("isRunning", true);
                 }
                 anim.SetBool("isMoving", true);
-                //.transform.rotation = Quaternion.Euler(0, 180, 0);
 
             }
             else
             {
                 anim.SetBool("isMoving", true);
-                //player.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
 
         }
@@ -64,35 +60,6 @@ public class newControls : MonoBehaviour
             anim.SetBool("isRunning", false);
             anim.SetBool("isMoving", false);
         }
-        /*if (strafe <= -.4 || strafe >= .4)
-        {
-            if(strafe >= .5)
-            {
-                anim.SetBool("isRunning", true);
-                player.transform.rotation = Quaternion.Euler(0, 90, 0);
-
-            }
-            else if (strafe < 0)
-            {
-                if (strafe <= -.5)
-                {
-                    anim.SetBool("isRunning", true);
-                }
-                anim.SetBool("isMoving", true);
-                player.transform.rotation = Quaternion.Euler(0, -90, 0);
-
-            }
-            else
-            {
-                anim.SetBool("isMoving", true);
-                player.transform.rotation = Quaternion.Euler(0, 90, 0);
-            }
-        }
-        else
-        {
-            anim.SetBool("isRunning", false);
-            anim.SetBool("isMoving", false);
-        }*/
     }
 
     void FixedUpdate()
