@@ -28,3 +28,7 @@ Once that occurs, your username and overall score will be placed on the leaderbo
 Take a break reminder:
 Occasionally, you will be reminded to take a break if you've been playing too long. If you prefer not to receive these messages,
 tapping on the 'x' button on the notification will prevent it from showing up for the remainder of the game.
+
+Link to GitHub:
+
+https://github.com/JTBridges/Capstone-Defence
